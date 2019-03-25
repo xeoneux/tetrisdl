@@ -10,5 +10,5 @@ else()
   message(WARNING "conanbuildinfo.cmake not found")
 endif()
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} main.cpp Tetriminos.cpp Tetriminos.h)
 target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
