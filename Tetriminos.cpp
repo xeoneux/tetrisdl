@@ -152,7 +152,7 @@ char tetriminos[7][4][5][5] = {
       {0, 0, 0, 0, 0}}}};
 
 // Kind | Rotation | Position
-int tetriminos_initial_position[7][4][2] = {
+int tetriminosInitialPosition[7][4][2] = {
 
     {// O
      {-2, -3},
@@ -197,14 +197,14 @@ int tetriminos_initial_position[7][4][2] = {
      {-2, -2}},
 };
 
-int Tetriminos::getTetriminoType(int tetrimino, int rotation, int x, int y) {
+int Tetriminos::getBlockType(int tetrimino, int rotation, int x, int y) {
   return tetriminos[tetrimino][rotation][x][y];
 }
 
 int Tetriminos::getXInitialPosition(int tetrimino, int rotation) {
-  return tetriminos_initial_position[tetrimino][rotation][0];
+  return tetriminosInitialPosition[tetrimino][rotation][0];
 }
 
 int Tetriminos::getYInitialPosition(int tetrimino, int rotation) {
-  return tetriminos_initial_position[tetrimino][rotation][1];
+  return tetriminosInitialPosition[tetrimino][rotation][1];
 }

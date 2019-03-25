@@ -3,7 +3,7 @@
 
 class Tetriminos {
 public:
-  int getTetriminoType(int tetrimino, int rotation, int x, int y);
+  int getBlockType(int tetrimino, int rotation, int x, int y);
   int getXInitialPosition(int tetrimino, int rotation);
   int getYInitialPosition(int tetrimino, int rotation);
 };
