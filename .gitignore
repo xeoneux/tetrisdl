@@ -1,0 +1,5 @@
+# IDEs
+.idea
+
+# CMake
+cmake-build-debug
