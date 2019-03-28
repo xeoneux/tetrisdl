@@ -32,7 +32,7 @@ private:
 
   int screenHeight;
   Tetriminos *tetriminos;
-  int board[BOARD_WIDTH][BOARD_HEIGHT];
+  int board[BOARD_WIDTH][BOARD_HEIGHT]{};
 
   void initBoard();
   void deleteLine(int y);

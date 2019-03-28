@@ -1,5 +1,11 @@
 #include "Board.h"
 
+Board::Board(Tetriminos *tetriminos, int screenHeight) {
+  this->screenHeight = screenHeight;
+  this->tetriminos = tetriminos;
+  initBoard();
+}
+
 void Board::initBoard() {
   for (auto &i : board)
     for (int &j : i)

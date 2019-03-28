@@ -1,28 +1,34 @@
+#include "Board.h"
+#include "Tetriminos.h"
 #include <SDL.h>
 #include <iostream>
 
-auto randomColor() -> Uint8 { return random() % 255; };
+auto randomColor() -> Uint8 { return random() % 255; }
 
 auto main() -> int {
 
   if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
     return EXIT_FAILURE;
 
-  SDL_DisplayMode DM;
-  SDL_GetCurrentDisplayMode(0, &DM);
+  auto W = 640;
+  auto H = 480;
 
   auto *window =
-      SDL_CreateWindow("TetriSDL", 0, 0, DM.w, DM.h, SDL_WINDOW_OPENGL);
+      SDL_CreateWindow("Welcome to TetriSDL", SDL_WINDOWPOS_CENTERED,
+                       SDL_WINDOWPOS_CENTERED, W, H, SDL_WINDOW_OPENGL);
 
   if (window == nullptr)
     return EXIT_FAILURE;
 
-  auto renderer = SDL_CreateRenderer(
+  auto *renderer = SDL_CreateRenderer(
       window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
   if (renderer == nullptr) {
     return EXIT_FAILURE;
   }
+
+  Tetriminos tetriminos;
+  Board board(&tetriminos, H);
 
   SDL_Event event;
   auto running = true;
