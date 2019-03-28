@@ -15,7 +15,7 @@ void Board::initBoard() {
 void Board::storePiece(int x, int y, int tetrimino, int rotation) {
   for (int i1 = x, i2 = 0; i1 < x + TETRIMINO_BLOCKS; i1++, i2++)
     for (int j1 = y, j2 = 0; j1 < y + TETRIMINO_BLOCKS; j1++, j2++)
-      if (tetriminos->getBlockType(tetrimino, rotation, j2, i2) != 0)
+      if (Tetriminos::getBlockType(tetrimino, rotation, j2, i2) != 0)
         board[i1][j1] = POS_FILLED;
 }
 
@@ -62,11 +62,11 @@ bool Board::isPossibleMovement(int x, int y, int tetrimino, int rotation) {
   for (int i1 = x, i2 = 0; i1 < x + TETRIMINO_BLOCKS; i1++, i2++) {
     for (int j1 = y, j2 = 0; j1 < y + TETRIMINO_BLOCKS; j1++, j2++) {
       if (i1 < 0 || i1 > BOARD_WIDTH - 1 || j1 > BOARD_HEIGHT - 1)
-        if (tetriminos->getBlockType(tetrimino, rotation, j2, i2) != 0)
+        if (Tetriminos::getBlockType(tetrimino, rotation, j2, i2) != 0)
           return false;
 
       if (j1 >= 0)
-        if ((tetriminos->getBlockType(tetrimino, rotation, j2, i2) != 0) &&
+        if ((Tetriminos::getBlockType(tetrimino, rotation, j2, i2) != 0) &&
             (!isFreeBlock(i1, j1)))
           return false;
     }

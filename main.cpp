@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "IO.h"
 #include "Tetriminos.h"
 #include <SDL.h>
 #include <iostream>
@@ -27,6 +28,7 @@ auto main() -> int {
     return EXIT_FAILURE;
   }
 
+  IO io(renderer);
   Tetriminos tetriminos;
   Board board(&tetriminos, H);
 
